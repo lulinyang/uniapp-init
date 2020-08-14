@@ -1,0 +1,7 @@
+.waterfall {
+	column-count: 2;
+	column-gap: 0;
+}
+.item-box {
+	padding: 10rpx;
+}

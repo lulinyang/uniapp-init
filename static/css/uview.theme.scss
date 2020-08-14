@@ -1,0 +1,88 @@
+$u-main-color: #222D3F;
+$u-content-color: #606266;
+$u-tips-color: #909399;
+$u-light-color: #666666;
+$u-border-color: #e4e7ed;
+$u-bg-color: #f3f4f6;
+
+$u-type-primary: #4775E9;
+$u-type-primary-light: #ecf5ff;
+$u-type-primary-dark: #2b85e4;
+$u-type-primary-disabled: #a0cfff;
+
+$u-type-warning: #ff9900;
+$u-type-warning-disabled: #fcbd71;
+$u-type-warning-dark: #f29100;
+$u-type-warning-light: #fdf6ec;
+
+$u-type-success: #19be6b;
+$u-type-success-disabled: #71d5a1;
+$u-type-success-dark: #18b566;
+$u-type-success-light: #dbf1e1;
+
+$u-type-error: #fa3534;
+$u-type-error-disabled: #fab6b6;
+$u-type-error-dark: #dd6161;
+$u-type-error-light: #fef0f0;
+
+$u-type-info: #909399;
+$u-type-info-disabled: #c8c9cc;
+$u-type-info-dark: #82848a;
+$u-type-info-light: #f4f4f5;
+
+$u-type-theme1: #e54d42;
+$u-type-theme1-disabled: #fadbd9;
+$u-type-theme1-dark: #fadbd9;
+$u-type-theme1-light: #fadbd9;
+
+$u-type-theme2: #f37b1d;
+$u-type-theme2-disabled: #fde6d2;
+$u-type-theme2-dark: #fde6d2;
+$u-type-theme2-light: #fde6d2;
+
+$u-type-theme3: #fbbd08;
+$u-type-theme3-disabled: #fef2ce;
+$u-type-theme3-dark: #fef2ce;
+$u-type-theme3-light: #fef2ce;
+
+$u-type-theme4: #39b54a;
+$u-type-theme4-disabled: #d7f0db;
+$u-type-theme4-dark: #d7f0db;
+$u-type-theme4-light: #d7f0db;
+
+$u-type-theme5: #1cbbb4;
+$u-type-theme5-disabled: #d2f1f0;
+$u-type-theme5-dark: #d2f1f0;
+$u-type-theme5-light: #d2f1f0;
+
+$u-type-theme5: #0081ff;
+$u-type-theme5-disabled: #cce6ff;
+$u-type-theme5-dark: #cce6ff;
+$u-type-theme5-light: #cce6ff;
+
+$u-type-theme6: #6739b6;
+$u-type-theme6-disabled: #e1d7f0;
+$u-type-theme6-dark: #e1d7f0;
+$u-type-theme6-light: #e1d7f0;
+
+$u-form-item-height: 70rpx;
+$u-form-item-border-color: #dcdfe6;
+
+:export {
+  mainColor: $u-main-color;
+  contentColor: $u-content-color;
+  tipsColor: $u-tips-color;
+  lightColor: $u-light-color;
+  borderColor: $u-border-color;
+  primary: $u-type-primary;
+  warning: $u-type-warning;
+  success: $u-type-success;
+  error: $u-type-error;
+  info: $u-type-info;
+	theme1: $u-type-theme1;
+	theme2: $u-type-theme2;
+	theme3: $u-type-theme3;
+	theme4: $u-type-theme4;
+	theme5: $u-type-theme5;
+	theme6: $u-type-theme6;
+}
