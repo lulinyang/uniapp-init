@@ -8,15 +8,14 @@ const install = (Vue, vm) => {
 		dataType: 'json',
 		originalData: true,
 		header: {
-			'content-type': 'application/json;charset=UTF-8',
-			'tenant': config.tenant
+			'content-type': 'application/json;charset=UTF-8'
 		},
 	});
 
 	// 请求拦截部分，如配置，每次请求前都会执行，见上方说明
 	Vue.prototype.$u.http.interceptor.request = (configData) => {
 		if (uni.getStorageSync('token')) {
-			configData.header.authorization = 'Bearer ' + uni.getStorageSync('token');
+			configData.header.token = uni.getStorageSync('token');
 		}
 		return configData;
 	}

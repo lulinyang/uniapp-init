@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import config from '@/config/index.js';
 const vue = new Vue;
-import uviewTheme from '@/static/css/uview.theme.scss';
+const uviewTheme = config.uviewTheme;
 export default {
 	install: function(Vue, vm) {
 		/**
@@ -24,44 +24,19 @@ export default {
 		 * 获取主题颜色
 		 */
 		Vue.prototype.themeColorValue = (type = uni.getStorageSync('themeName') ? uni.getStorageSync('themeName') : 'primary') => {
-			switch (type) {
-				case 'primary':
-					return uviewTheme.primary;
-					break;
-				case 'error':
-					return uviewTheme.error;
-					break;
-				case 'warning':
-					return uviewTheme.warning;
-					break;
-				case 'info':
-					return uviewTheme.info;
-					break;
-				case 'success':
-					return uviewTheme.success;
-					break;
-				case 'theme1':
-					return uviewTheme.theme1;
-					break;
-				case 'theme2':
-					return uviewTheme.theme2;
-					break;
-				case 'theme3':
-					return uviewTheme.theme3;
-					break;
-				case 'theme4':
-					return uviewTheme.theme4;
-					break;
-				case 'theme5':
-					return uviewTheme.theme5;
-					break;
-				case 'theme6':
-					return uviewTheme.theme6;
-					break;
-				default:
-					return uviewTheme.primary;
-			}
-		}
+			return uviewTheme[type] ? uviewTheme[type] : uviewTheme.primary;
+		},
+		
+		/**
+		 * 获取主题颜色的rgba颜色值
+		 * @param {Object} opacity 0-1
+		 */
+		Vue.prototype.themeRgba = function(opacity = 1) {
+			let type = uni.getStorageSync('themeName') ? uni.getStorageSync('themeName') : 'primary';
+			let rgb = vue.$u.hexToRgb(uviewTheme[type]);
+			let rgba = rgb.replace(/rgb/g, 'rgba').replace(/\)/g, `, ${opacity})`);
+			return rgba;
+		},
 		/**
 		 * 判断项目运行环境
 		 */
@@ -87,9 +62,19 @@ export default {
 				n = n.toString()
 				return n[1] ? n : '0' + n
 			}
+			if (!timestamp) {
+				const date = new Date();
+				const year = date.getFullYear()
+				const month = (date.getMonth() + 1) > 9 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1);
+				const day = date.getDate()
+				const hour = date.getHours()
+				const minute = date.getMinutes()
+				const second = date.getSeconds()
+				return year + '-' + month + '-' + day;
+			}
 			const date = new Date(timestamp * 1000);
 			const year = date.getFullYear()
-			const month = date.getMonth() + 1
+			const month = (date.getMonth() + 1) > 9 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1);
 			const day = date.getDate()
 			const hour = date.getHours()
 			const minute = date.getMinutes()
@@ -107,7 +92,13 @@ export default {
 				return [year, month, day].map(formatNumber).join(symbol);
 			} else if (format === `Y${symbol}m`) {
 				return [year, month].map(formatNumber).join(symbol);
-			} else {
+			} else if (format === `m${symbol}d H:i`) {
+				let now = new Date();
+				if (now.getFullYear() == year && (now.getMonth() + 1) == month && now.getDate() == day) {
+					return '今天' + ' ' + [hour, minute].map(formatNumber).join(':');
+				}
+				return [month, day].map(formatNumber).join(symbol) + ' ' + [hour, minute].map(formatNumber).join(':');
+			} {
 				return year + '年' + month + '月' + day + '日';
 			}
 		}
@@ -307,6 +298,54 @@ export default {
 			}
 			return arr;
 		}
-
+		/**
+		 * 匹配错题原因
+		 */
+		Vue.prototype.formatCauseReason = (key) => {
+			let cause_reasons = uni.getStorageSync('cause_reason') || [];
+			let cause_reasons_name = '';
+			try{
+				cause_reasons.forEach((item, index) => {
+					if(item.key*1 === key*1) {
+						cause_reasons_name = item.val;
+						throw new Error('跳出循环！');
+					}
+				})
+			}catch(e){
+				console.log(e.message);
+			}
+			return cause_reasons_name;
+		}
+		
+		/**
+		 * 对象转数组
+		 */
+		Vue.prototype.formatObjArray = (obj) => {
+			let keys = Object.keys(obj);
+			let arr = [];
+			keys.forEach(item => {
+				arr.push({
+					label: obj[item],
+					value: item
+				})
+			});
+			return arr;
+		}
+		
+		/**
+		 * 默认，随机颜色，传index 指定颜色，
+		 */
+		Vue.prototype.randomColor = (index) => {
+			let colors = [
+				'#02C8A5', '#e54d42', '#f37b1d', '#fbbd08', '#8dc63f', '#39b54a',
+				'#1cbbb4', '#0081ff', '#6739b6', '#9c26b0', '#e03997', '#a5673f',
+				'#8799a3', '#aaaaaa', '#333333', '#ff9900', '#fa3534', '#6739b6'
+			];
+			let i = parseInt(Math.random() * (colors.length - 0 + 1) + 0, 10);
+			if (index) {
+				return colors[index] ? colors[index] : colors[i];
+			}
+			return colors[i];
+		}
 	}
 }
