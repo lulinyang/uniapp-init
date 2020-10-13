@@ -34,34 +34,5 @@ export default {
 		theme4: '#39b54a',
 		theme5: '#1cbbb4',
 		theme6: '#6739b6'
-	},
-	//tabbar
-	list: [{
-			iconPath: "/static/images/home.png",
-			selectedIconPath: "/static/images/home_full.png",
-			text: '首页',
-			customIcon: false,
-		},
-		{
-			iconPath: "/static/images/elegant-demeanour.png",
-			selectedIconPath: "/static/images/elegant-demeanour_full.png",
-			text: '风采',
-			customIcon: false,
-			
-		},
-		{
-			iconPath: "/static/images/school.png",
-			selectedIconPath: "/static/images/school_full.png",
-			text: '学校',
-			customIcon: false,
-		},
-		{
-			iconPath: "/static/images/my.png",
-			selectedIconPath: "/static/images/my_full.png",
-			text: '我的',
-			count: 0,
-			isDot: true,
-			customIcon: false,
-		},
-	]
+	}
 }

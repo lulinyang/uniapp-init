@@ -5,7 +5,7 @@ import uView from "uview-ui";
 Vue.use(uView);
 
 //自定义全局方法
-import MyPlugin from '@/tools/myPlugin' 
+import MyPlugin from '@/tools/myPlugin'
 Vue.use(MyPlugin);
 
 Vue.config.productionTip = false
@@ -17,13 +17,13 @@ Vue.prototype.$config = config;
 
 
 const app = new Vue({
-    ...App
+	...App
 })
 app.$mount()
 
-import http from '@/http/serve/interApi.js';//请求拦截器
+import http from '@/http/serve/interApi.js'; //请求拦截器
 Vue.use(http, app);
-import api from '@/http/serve/api.js';//接口集中管理
+import api from '@/http/serve/api.js'; //接口集中管理
 Vue.use(api, app);
 
 

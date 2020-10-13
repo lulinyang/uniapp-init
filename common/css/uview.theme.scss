@@ -1,19 +1,19 @@
-$u-main-color: #222D3F;
+$u-main-color: #333333;
 $u-content-color: #606266;
 $u-tips-color: #909399;
-$u-light-color: #666666;
+$u-light-color: #BBBBBB;
 $u-border-color: #e4e7ed;
 $u-bg-color: #f3f4f6;
 
-$u-type-primary: #4775E9;
-$u-type-primary-light: #ecf5ff;
-$u-type-primary-dark: #2b85e4;
-$u-type-primary-disabled: #a0cfff;
+$u-type-primary: #E39A39;
+$u-type-primary-light: #fcbd71;
+$u-type-primary-dark: #f29100;
+$u-type-primary-disabled: #fdf6ec;
 
-$u-type-warning: #ff9900;
-$u-type-warning-disabled: #fcbd71;
-$u-type-warning-dark: #f29100;
-$u-type-warning-light: #fdf6ec;
+$u-type-warning: #00A0E9;
+$u-type-warning-disabled: #a0cfff;
+$u-type-warning-dark: #2b85e4;
+$u-type-warning-light: #ecf5ff;
 
 $u-type-success: #19be6b;
 $u-type-success-disabled: #71d5a1;
@@ -55,10 +55,6 @@ $u-type-theme5-disabled: #d2f1f0;
 $u-type-theme5-dark: #d2f1f0;
 $u-type-theme5-light: #d2f1f0;
 
-$u-type-theme5: #0081ff;
-$u-type-theme5-disabled: #cce6ff;
-$u-type-theme5-dark: #cce6ff;
-$u-type-theme5-light: #cce6ff;
 
 $u-type-theme6: #6739b6;
 $u-type-theme6-disabled: #e1d7f0;
@@ -67,22 +63,3 @@ $u-type-theme6-light: #e1d7f0;
 
 $u-form-item-height: 70rpx;
 $u-form-item-border-color: #dcdfe6;
-
-:export {
-  mainColor: $u-main-color;
-  contentColor: $u-content-color;
-  tipsColor: $u-tips-color;
-  lightColor: $u-light-color;
-  borderColor: $u-border-color;
-  primary: $u-type-primary;
-  warning: $u-type-warning;
-  success: $u-type-success;
-  error: $u-type-error;
-  info: $u-type-info;
-	theme1: $u-type-theme1;
-	theme2: $u-type-theme2;
-	theme3: $u-type-theme3;
-	theme4: $u-type-theme4;
-	theme5: $u-type-theme5;
-	theme6: $u-type-theme6;
-}

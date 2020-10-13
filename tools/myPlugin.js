@@ -26,6 +26,7 @@ export default {
 		Vue.prototype.themeColorValue = (type = uni.getStorageSync('themeName') ? uni.getStorageSync('themeName') : 'primary') => {
 			return uviewTheme[type] ? uviewTheme[type] : uviewTheme.primary;
 		},
+	
 		
 		/**
 		 * 获取主题颜色的rgba颜色值
@@ -34,6 +35,16 @@ export default {
 		Vue.prototype.themeRgba = function(opacity = 1) {
 			let type = uni.getStorageSync('themeName') ? uni.getStorageSync('themeName') : 'primary';
 			let rgb = vue.$u.hexToRgb(uviewTheme[type]);
+			let rgba = rgb.replace(/rgb/g, 'rgba').replace(/\)/g, `, ${opacity})`);
+			return rgba;
+		},
+		
+		/**
+		 * 获取颜色的rgba颜色值
+		 * @param {Object} opacity 0-1
+		 */
+		Vue.prototype.getRgba = function(opacity = 1, color) {
+			let rgb = vue.$u.hexToRgb(color);
 			let rgba = rgb.replace(/rgb/g, 'rgba').replace(/\)/g, `, ${opacity})`);
 			return rgba;
 		},
